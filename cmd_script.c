@@ -3,18 +3,23 @@
 
 /*
 
-# script
+## script 
 
 simple plain script run from mem without mkimage wrapers
 
-cool alternative for `autoscript` and `source`
+`script` is cool alternative for `autoscript` and `source`
 simle usage without mkimage 
+
++ https://github.com/hyphop/uboot-extra
++ https://raw.githubusercontent.com/hyphop/uboot-extra/master/cmd_script.c
 
 # sintax and parsing
 
+```
 #!script - script must begin from this marker
 ##END##  - its end marker - after this lines all strings ignored
 '\0'     - its same end marker
+```
 
 script parsed by run_command_list
 
@@ -24,11 +29,18 @@ just add next line to Makefile
 
     obj-y += cmd_script.o
 
-# uboot usage examples
+# uboot usage
 
-    script 0x1000000				- simple run
-    script 0x1000000 32 			- only fist 32 bytes
-    script 0x1000000 $filesize 			- limited by file size
+    script [addr] [bytes] [nochk] [silent] - run script starting at addr
+        bytes - read bytes (hex) limit
+        nochk - no check #!script header
+        silent - be silent
+
+# uboot usage  examples
+
+    script 0x1000000				- simple run from addr 0x1000000
+    script 0x1000000 32 			- same but only fist 32 bytes
+    script 0x1000000 $filesize 			- same but limited by file size value 
     script 0x1000000 $filesize nochk 		- same but without header check
     script 0x1000000 $filesize nochk silent	- same but silent
 
