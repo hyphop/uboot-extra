@@ -4,7 +4,7 @@
 
 simple plain script run from mem without mkimage wrapers
 
-cool alternative for `autoscript` and `source`
+`script ` is cool alternative for `autoscript` and `source`
 simle usage without mkimage 
 
 # sintax and parsing
@@ -24,7 +24,7 @@ just add next line to Makefile
 # uboot usage
 
     script [addr] [bytes] [nochk] [silent] - run script starting at addr
-        bytes - read bytes (hex) limit
+	bytes - read bytes (hex) limit
 	nochk - no check #!script header
 	silent - be silent
 
