@@ -7,9 +7,9 @@ simple uboot plain script run from mem without mkimage wrappers
 `script` is cool alternative for `autoscript` and `source`
 simle usage without mkimage
 
-+ https://github.com/hyphop/uboot-extra
 + [cmd/cmd_script.c](cmd/cmd_script.c)
-+ https://raw.githubusercontent.com/hyphop/uboot-extra/master/cmd/cmd_script.c
++ https://github.com/hyphop/uboot-extra
++ wget https://raw.githubusercontent.com/hyphop/uboot-extra/master/cmd/cmd_script.c
 
 # sintax and parsing
 
@@ -55,3 +55,9 @@ just add next line to Makefile
 
     # spi flash usage
     ADDR=100000; sf read $ADDR $SCRIPT_OFFSET $SCRIPT_BYTES; script $ADDR
+
+# AUTHOR
+
+	## hyphop ## for Khadas
+
+
