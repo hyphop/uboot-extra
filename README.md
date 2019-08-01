@@ -2,7 +2,7 @@
 
 ## script
 
-simple uboot plain script run from mem without mkimage wrapers
+simple uboot plain script run from mem without mkimage wrappers
 
 `script` is cool alternative for `autoscript` and `source`
 simle usage without mkimage

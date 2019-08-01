@@ -5,7 +5,7 @@
 
 ## script 
 
-simple plain script run from mem without mkimage wrapers
+simple plain script run from mem without mkimage wrappers
 
 `script` is cool alternative for `autoscript` and `source`
 simle usage without mkimage 
