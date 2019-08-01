@@ -9,9 +9,11 @@ simle usage without mkimage
 
 # sintax and parsing
 
+```
 #!script - script must begin from this marker
 ##END##  - its end marker - after this lines all strings ignored
 '\0'     - its same end marker
+```
 
 script parsed by run_command_list
 
@@ -24,9 +26,9 @@ just add next line to Makefile
 # uboot usage
 
     script [addr] [bytes] [nochk] [silent] - run script starting at addr
-	bytes - read bytes (hex) limit
-	nochk - no check #!script header
-	silent - be silent
+	    bytes - read bytes (hex) limit
+	    nochk - no check #!script header
+	    silent - be silent
 
 # uboot usage  examples
 
