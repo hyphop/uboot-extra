@@ -13,7 +13,6 @@ simle usage without mkimage
 + https://github.com/hyphop/uboot-extra
 + https://raw.githubusercontent.com/hyphop/uboot-extra/master/cmd_script.c
 
-# 
 # sintax and parsing
 
 ```
