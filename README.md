@@ -8,7 +8,8 @@ simple plain script run from mem without mkimage wrapers
 simle usage without mkimage 
 
 + https://github.com/hyphop/uboot-extra
-+ https://raw.githubusercontent.com/hyphop/uboot-extra/master/cmd_script.c
++ [cmd/cmd_script.c](cmd/cmd_script.c)
++ https://raw.githubusercontent.com/hyphop/uboot-extra/master/cmd/cmd_script.c
 
 # sintax and parsing
 
