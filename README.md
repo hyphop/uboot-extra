@@ -1,11 +1,11 @@
 # uboot extra
 
-## script 
+## script
 
-simple plain script run from mem without mkimage wrapers
+simple uboot plain script run from mem without mkimage wrapers
 
 `script` is cool alternative for `autoscript` and `source`
-simle usage without mkimage 
+simle usage without mkimage
 
 + https://github.com/hyphop/uboot-extra
 + [cmd/cmd_script.c](cmd/cmd_script.c)
@@ -20,6 +20,11 @@ simle usage without mkimage
 ```
 
 script parsed by run_command_list
+
+# features
+
+we can use same `script` cmd for wrapped scripts with 72 bytes mkimage header
+which parsed by `source` or `autoscript`
 
 # how to install it 
 

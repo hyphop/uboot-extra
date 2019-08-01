@@ -13,6 +13,7 @@ simle usage without mkimage
 + https://github.com/hyphop/uboot-extra
 + https://raw.githubusercontent.com/hyphop/uboot-extra/master/cmd_script.c
 
+# 
 # sintax and parsing
 
 ```
@@ -22,6 +23,11 @@ simle usage without mkimage
 ```
 
 script parsed by run_command_list
+
+# features
+
+we can use same `script` cmd for wrapped scripts with 72 bytes mkimage header
+which parsed by `source` or `autoscript`
 
 # how to install it 
 
@@ -75,7 +81,31 @@ script (ulong addr , unsigned leng,  unsigned hdr_chk , unsigned silent)
 	
 	data = (char *)buf;
 	n = data;
+
+// simple mkimage header parser
+	if ( *(n+0) == 0x27 &&
+	     *(n+1) == 0x05 &&
+	     *(n+2) == 0x19 &&
+	     *(n+3) == 0x56
+	     ) {
+
+//	size calculate
+	    unsigned int l = (*(n+14))*256 + *(n+15);
+
+	    if ( l > 8 ) l-=8;
+//	fix offest
+	    data+=72;
+	    hdr_chk=0;
+
+	    if (!silent)
+		printf ("[w] mkimage Script a:%08lx l:%u - s:%u\n", addr, len, l) ;
+
+//	fix len
+	    len=l;
+
+	}
 	
+// simple script header parser
 	if ( hdr_chk ) {
 	if ( *n++ == '#' &&
 	     *n++ == '!' &&
