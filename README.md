@@ -1,6 +1,6 @@
 # uboot extra
 
-+ [cmd/cmd_script.c](cmd/cmd_script.c) / [cmd/cmd_script.md](cmd/cmd_script.md)
++ [cmd/cmd_script.c](cmd/cmd_script.c) - [cmd/cmd_script.md](cmd_script.md)
 
 ## script
 
