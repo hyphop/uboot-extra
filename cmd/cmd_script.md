@@ -1,7 +1,3 @@
-# uboot extra
-
-+ [cmd/cmd_script.c](cmd/cmd_script.c) / [cmd/cmd_script.md](cmd/cmd_script.md)
-
 ## script
 
 simple plain script run from mem without mkimage wrappers
@@ -53,10 +49,3 @@ just add next line to Makefile
 
     # spi flash usage
     ADDR=100000; sf read $ADDR $SCRIPT_OFFSET $SCRIPT_BYTES; script $ADDR
-
-
-# AUTHOR
-
-	## hyphop ## for Khadas
-
-

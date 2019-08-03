@@ -3,50 +3,47 @@
 
 /*
 
-## script 
+## script
 
 simple plain script run from mem without mkimage wrappers
 
-`script` is cool alternative for `autoscript` and `source`
-simle usage without mkimage 
+`script` is cool alternative for `autoscript` and `source` , we can
+ use one `script` command for plain script and wrapped scripts!
 
 + https://github.com/hyphop/uboot-extra
-+ wget https://raw.githubusercontent.com/hyphop/uboot-extra/master/cmd_script.c
++ https://raw.githubusercontent.com/hyphop/uboot-extra/master/cmd_script.c
 
-# sintax and parsing
+## sintax and parsing
 
 ```
 #!script - script must begin from this marker
 ##END##  - its end marker - after this lines all strings ignored
 '\0'     - its same end marker
+72bytes  - mkimage header parsed 
+
 ```
 
 script parsed by run_command_list
 
-# features
-
-we can use same `script` cmd for wrapped scripts with 72 bytes mkimage header
-which parsed by `source` or `autoscript`
-
-# how to install it 
+## how to install it 
 
 just add next line to Makefile
 
     obj-y += cmd_script.o
 
-# uboot usage
+## uboot usage
 
     script [addr] [bytes] [nochk] [silent] - run script starting at addr
         bytes - read bytes (hex) limit
         nochk - no check #!script header
         silent - be silent
 
-# uboot usage  examples
+## uboot usage  examples
 
     script 0x1000000				- simple run from addr 0x1000000
     script 0x1000000 32 			- same but only fist 32 bytes
     script 0x1000000 $filesize 			- same but limited by file size value 
-    script 0x1000000 $filesize nochk 		- same but without header check
+    script 0x1000000 $filesize nochk 		- same but without $!script header check
     script 0x1000000 $filesize nochk silent	- same but silent
 
     # tftp script usage
@@ -191,7 +188,7 @@ int do_script (cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 
 U_BOOT_CMD(
 	script, 5, 0,	do_script,
-	"run plain script from memory\n",
+	"run plain script from memory",
 	"[addr] [bytes] [nochk] [silent] - run script starting at addr\n"
 	"	bytes - read bytes (hex) limit\n"
 	"	nochk - no check #!script header\n"
