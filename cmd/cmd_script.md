@@ -28,10 +28,12 @@ just add next line to Makefile
 
 ## uboot usage
 
-    script [addr] [bytes] [nochk] [silent] - run script starting at addr
+    script [addr|check] [bytes] [nochk] [silent] - run script starting at addr
         bytes - read bytes (hex) limit
         nochk - no check #!script header
         silent - be silent
+
+    script check && echo ok # just check script cmd 
 
 ## uboot usage  examples
 

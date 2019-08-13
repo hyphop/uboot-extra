@@ -33,10 +33,12 @@ just add next line to Makefile
 
 ## uboot usage
 
-    script [addr] [bytes] [nochk] [silent] - run script starting at addr
+    script [addr|check] [bytes] [nochk] [silent] - run script starting at addr
         bytes - read bytes (hex) limit
         nochk - no check #!script header
         silent - be silent
+
+    script check && echo ok # check script cmd
 
 ## uboot usage  examples
 
@@ -170,6 +172,20 @@ int do_script (cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 
 	unsigned leng;
 
+	char *n;
+	n = (char *)argv[1];
+
+	// just check
+	//$ script check && echo ok
+	//printf ("[i] args %s %s\n", argv[1], n);
+
+	if ( *n++  == 'c' && 
+	     *n++  == 'h' &&
+	    1
+	    ) {
+	    return 0;
+	}
+
 	addr = simple_strtoul(argv[1], NULL, 16);
 	if ( argc < 3 )  {
 	    leng = 65536/2;
@@ -188,8 +204,8 @@ int do_script (cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 
 U_BOOT_CMD(
 	script, 5, 0,	do_script,
-	"run plain script from memory",
-	"[addr] [bytes] [nochk] [silent] - run script starting at addr\n"
+	"# run plain script from memory",
+	"[addr|check] [bytes] [nochk] [silent] - run script starting at addr\n"
 	"	bytes - read bytes (hex) limit\n"
 	"	nochk - no check #!script header\n"
 	"	silent - be silent\n"
